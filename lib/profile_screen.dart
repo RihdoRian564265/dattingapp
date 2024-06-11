@@ -23,6 +23,7 @@ class ProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)),
                   child: IconButton(
                     icon: Icon(Icons.person),
+                    iconSize: 35,
                     color: Colors.white,
                     onPressed: () {},
                   ),

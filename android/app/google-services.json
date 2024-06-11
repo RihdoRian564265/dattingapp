@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784337838266",
+    "project_id": "m-lovers-c94ff",
+    "storage_bucket": "m-lovers-c94ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784337838266:android:2616e945f3d8a47d24a283",
+        "android_client_info": {
+          "package_name": "com.example.dattingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwnkTzG1SmoVq7oO3XEsKWvcHCO9dKCvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

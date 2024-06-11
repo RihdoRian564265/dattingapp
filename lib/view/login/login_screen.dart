@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             isPasswordField: true,
                             hint: 'Password',
                             onValidator: (value) {
-                              return value.isEmpty ? 'Enter Pas' : null;
+                              return value.isEmpty ? 'Enter Password' : null;
                             }),
                                                     SizedBox(
                           height: height * 0.02,
@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 InkWell(
                   onTap: () {
-            
+                    Navigator.pushNamed(context, '/forget');
                   },
                   child: Align(
                     alignment: Alignment.centerRight,

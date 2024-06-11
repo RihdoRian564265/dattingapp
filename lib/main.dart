@@ -5,6 +5,7 @@ import 'package:dattingapp/profile_screen.dart';
 import 'package:dattingapp/res/color.dart';
 import 'package:dattingapp/res/fonts.dart';
 import 'package:dattingapp/view/login/login_screen.dart';
+import 'package:dattingapp/view/signup/sign_up_screen.dart';
 import 'package:dattingapp/view/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -56,10 +57,10 @@ class MyApp extends StatelessWidget {
           // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
           // child: GetstartedScreen(),
         ),
-        '/started': (context) => GestureDetector(),
         // '/loading': (context) => LoadingScreen(),
         '/profil': (context) => ProfileScreen(),
         '/login': (context) => LoginScreen(),
+        '/signUp': (context) => SignUpScreen(),
 
       },
     

@@ -1,5 +1,4 @@
 import 'package:dattingapp/utils/utils.dart';
-import 'package:dattingapp/view/login/login_screen.dart';
 import 'package:dattingapp/view_model/signup/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:dattingapp/res/component/input_text_field.dart';
@@ -131,15 +130,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     
                     if(_formKey.currentState!.validate ()){
-                      provider.signUp( usernameControllor.text, emailControllor.text, passwordControllor.text);
+                      provider.signUp(context, usernameControllor.text, emailControllor.text, passwordControllor.text);
                       
                     }
-                          Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>  LoginScreen(),
-        ),
-      );
                   },
                 ),
                 SizedBox(
@@ -147,12 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/login');
                   },
                   child: Text.rich(
                     TextSpan(

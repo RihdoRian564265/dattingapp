@@ -18,7 +18,7 @@ bool get loading => _loading;
  }
  
 
-void signUp( username, String email, String password){
+void signUp(BuildContext context, username, String email, String password){
   setLoading(true);
   try{ 
     auth.createUserWithEmailAndPassword(
@@ -42,6 +42,7 @@ void signUp( username, String email, String password){
         });
         
         setLoading(false);
+        Navigator.pushNamed(context, '/profil');
       }).onError((error, stackTrace){
         setLoading(false);
         Utils.toasstMessage(error.toString());

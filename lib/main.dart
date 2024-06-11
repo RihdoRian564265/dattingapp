@@ -1,6 +1,7 @@
 import 'package:dattingapp/authenticationScreen/getstarted_screen.dart';
 import 'package:dattingapp/authenticationScreen/loading_screen.dart';
-import 'package:dattingapp/profile_screen.dart';
+import 'package:dattingapp/view/message/message_screen.dart';
+import 'package:dattingapp/view/profile/profile_screen.dart';
 import 'package:dattingapp/res/color.dart';
 import 'package:dattingapp/res/fonts.dart';
 import 'package:dattingapp/view/ForgetPw/forgetpw_screen.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/signUp': (context) => SignUpScreen(),
         '/forget': (context) => ForgetpwScreen(),
-
+        '/msg': (context) => MessageScreen(),
 
       },
     

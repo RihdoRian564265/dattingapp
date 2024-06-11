@@ -14,26 +14,33 @@ class _GetstartedScreenState extends State<GetstartedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF333333),
       body: Center(
+        
         child: Container(
             width: 414,
             height: 896,
             padding: const EdgeInsets.only(
+              
           top: 209,
-          left: 50,
-          right: 50,
-          bottom: 388,
+          left: 60,
+          right: 60,
+          bottom: 300,
             ),
+            
             clipBehavior: Clip.antiAlias,
             decoration: const BoxDecoration(color: Color(0xFF333333)),
             
             child: Column(
+              
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            
               SizedBox(
+                
                   width: 314,
                   height: 299,
                   child: Stack(

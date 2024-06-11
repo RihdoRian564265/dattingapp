@@ -1,9 +1,9 @@
-
-// import 'package:dattingapp/authenticationScreen/getstarted_screen.dart';
+import 'package:dattingapp/authenticationScreen/getstarted_screen.dart';
 import 'package:dattingapp/authenticationScreen/loading_screen.dart';
 import 'package:dattingapp/profile_screen.dart';
 import 'package:dattingapp/res/color.dart';
 import 'package:dattingapp/res/fonts.dart';
+import 'package:dattingapp/view/ForgetPw/forgetpw_screen.dart';
 import 'package:dattingapp/view/login/login_screen.dart';
 import 'package:dattingapp/view/signup/sign_up_screen.dart';
 import 'package:dattingapp/view/splash/splash_screen.dart';
@@ -55,12 +55,14 @@ class MyApp extends StatelessWidget {
        routes: {
         '/': (context) => SplashScreen(
           // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
-          // child: GetstartedScreen(),
+          child: GetstartedScreen(),
         ),
         '/loading': (context) => LoadingScreen(),
         '/profil': (context) => ProfileScreen(),
         '/login': (context) => LoginScreen(),
         '/signUp': (context) => SignUpScreen(),
+        '/forget': (context) => ForgetpwScreen(),
+
 
       },
     

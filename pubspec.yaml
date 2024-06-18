@@ -46,6 +46,10 @@ dependencies:
   image_picker: ^1.1.2
   firebase_core: ^3.0.0
   flutter_spinkit: ^5.2.1
+  flame_svg: ^1.10.2
+  bubble_tab_indicator: ^0.1.6
+  google_fonts: ^6.2.1
+  page_transition: ^2.1.0
 
 
 dev_dependencies:

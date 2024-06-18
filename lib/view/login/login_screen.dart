@@ -1,8 +1,13 @@
 import 'package:dattingapp/res/component/input_text_field.dart';
 import 'package:dattingapp/res/component/round_botoon.dart';
+import 'package:dattingapp/view/ForgetPw/forgetpw_screen.dart';
+import 'package:dattingapp/view/signup/sign_up_screen.dart';
+import 'package:dattingapp/view_model/login/login_controller.dart';
 // import 'package:dattingapp/view/ForgetPw/forgetpw_screen.dart';
 // import 'package:dattingapp/view/signup/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -17,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final emailControllor = TextEditingController();
-  final passwoardControllor = TextEditingController();
+  final passwordControllor = TextEditingController();
 
   final emailFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
@@ -27,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // TODO: implement dispose
     super.dispose();
     emailControllor.dispose();
-    passwoardControllor.dispose();
+    passwordControllor.dispose();
     emailFocusNode.dispose();
     passwordFocusNode.dispose();
   }
@@ -86,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         InputTextField(
                             enable: true,
-                            myController: passwoardControllor,
+                            myController: passwordControllor,
                             focusNode: passwordFocusNode,
                             onFieldSubmittedValue: (value) {},
                             keyboardType: TextInputType.visiblePassword,
@@ -95,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onValidator: (value) {
                               return value.isEmpty ? 'Enter Password' : null;
                             }),
-                                                    SizedBox(
+                        SizedBox(
                           height: height * 0.02,
                         ),
                       ],
@@ -104,12 +109,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, '/forget');
+                    Navigator.of(context).push(
+                      PageTransition(
+                        child: ForgetpwScreen(),
+                        type: PageTransitionType.rightToLeft,
+                      ),
+                    );
                   },
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      'Forget Password',
+                      'Forget Password?',
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 14, decoration: TextDecoration.underline),
                     ),
@@ -118,21 +128,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                RoundBotoon(
-                  title: 'Login',
-                  loading: false,
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-
-                    }
-                  },
+                ChangeNotifierProvider(
+                  create: (_) => LoginController(),
+                  child: Consumer<LoginController>(
+                    builder: (context, provider, child) {
+                      return RoundBotoon(
+                        title: 'Login',
+                        loading: provider.loading,
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            provider.Login(context, emailControllor.text,
+                                passwordControllor.text);
+                          }
+                        },
+                      );
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: height * 0.03,
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, '/signUp');
+                    Navigator.of(context).push(
+                      PageTransition(
+                        child: SignUpScreen(),
+                        type: PageTransitionType.fade,
+                      ),
+                    );
                   },
                   child: Text.rich(
                     TextSpan(
@@ -143,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           .copyWith(fontSize: 14),
                       children: [
                         TextSpan(
-                            text: 'Sing Up',
+                            text: 'Sign Up',
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge!

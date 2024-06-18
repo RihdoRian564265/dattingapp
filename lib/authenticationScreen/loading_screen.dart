@@ -1,4 +1,6 @@
 import 'dart:async';
+
+import 'package:dattingapp/utils/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -13,7 +15,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, '/login');
+      Navigator.pushNamed(context, RouteName.loginScreen);
     });
     super.initState();
   }

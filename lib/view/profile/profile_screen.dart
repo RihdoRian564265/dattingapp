@@ -40,7 +40,9 @@ class ProfileScreen extends StatelessWidget {
                   icon: Icon(Icons.messenger_outline_rounded),
                   color: Colors.blue,
                   iconSize: 45,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/msg');
+                  },
                 ),
               ],
             ),

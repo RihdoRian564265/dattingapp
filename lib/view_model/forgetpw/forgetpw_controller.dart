@@ -1,3 +1,4 @@
+import 'package:dattingapp/utils/routes/route_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -18,11 +19,12 @@ class ForgetpwController with ChangeNotifier {
     setLoading(true);
     try {
       await auth
-          .sendPasswordResetEmail(email: email,  )
+          .sendPasswordResetEmail(
+        email: email,
+      )
           .then((value) {
-
         setLoading(false);
-        Navigator.pushNamed(context, '/login');
+        Navigator.pushNamed(context, RouteName.loginScreen);
         Utils.toasstMessage("Please check your email to recover your password");
       }).onError((error, stackTrace) {
         setLoading(false);
@@ -30,9 +32,8 @@ class ForgetpwController with ChangeNotifier {
       });
     } catch (e) {
       setLoading(false);
-      
+
       Utils.toasstMessage(e.toString());
-      
     }
   }
 }

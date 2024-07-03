@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/chat_message.dart';
 
 class ChatScreen extends StatefulWidget {
   @override

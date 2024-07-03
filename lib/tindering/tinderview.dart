@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tindercard/flutter_tindercard.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,7 +32,7 @@ class _TinderSwipeScreenState extends State<TinderSwipeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    CardController controller; // Use this to trigger swap.
+// Use this to trigger swap.
     return Scaffold(
       appBar: AppBar(
         title: Text('Tinder Swipe'),
@@ -55,7 +54,6 @@ class _TinderSwipeScreenState extends State<TinderSwipeScreen> {
             cardBuilder: (context, index) => Card(
               child: Image.asset('${welcomeImages[index]}'),
             ),
-            cardController: controller = CardController(),
             swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
               /// Get swiping card's alignment
               if (align.x < 0) {
@@ -73,4 +71,16 @@ class _TinderSwipeScreenState extends State<TinderSwipeScreen> {
       ),
     );
   }
+  
+  TinderSwapCard({required bool swipeUp, required bool swipeDown, required orientation, required int totalNum, required int stackNum, required double swipeEdge, required double maxWidth, required double maxHeight, required double minWidth, required double minHeight, required Card Function(dynamic context, dynamic index) cardBuilder, required Null Function(DragUpdateDetails details, Alignment align) swipeUpdateCallback, required Null Function(CardSwipeOrientation orientation, int index) swipeCompleteCallback}) {}
+}
+
+class AmassOrientation {
+  static var BOTTOM;
+}
+
+class CardSwipeOrientation {
+}
+
+class CardController {
 }
